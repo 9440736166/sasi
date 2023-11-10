@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Image Slideshow</title>
+    <style>
+    body{
+        background-color: rgb(24, 21, 22);
+    }
+        .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display:flex;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+.container{
+    text-align:center;
+    color: rgb(42, 165, 58);
+}
+    </style>
+</head>
+   <link rel="stylesheet" href="style.css">
+<body>
+    <div class="container">
+        <h1>Interactive Webpage</h1>
+    </div>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="C:\Users\mahes\Pictures\Saved Pictures\cyc.jpg" alt="Image 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="C:\Users\mahes\Pictures\Saved Pictures\eye.jpg" alt="image 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="C:\Users\mahes\Pictures\Saved Pictures\gost.jpg" alt="Image 3">
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+    <button onclick="toggleSlides()">Toggle Slideshow</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+//jacascript code
+let slideIndex = 0;
+let slides = document.getElementsByClassName("mySlides");
+
+function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }    
+    slides[slideIndex - 1].style.display = "block";  
+}
+
+function toggleSlides() {
+    if (slides[0].style.display === "none") {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "block";  
+        }
+    } else {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+    }
+}
+
+setInterval(showSlides, 2000); // Change slide every 2 seconds (2000 milliseconds)
